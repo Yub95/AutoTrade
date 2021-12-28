@@ -16,3 +16,4 @@
 
 
 - git clone https://github.com/Yub95/AutoTrade.git
+- 리눅스 필수 기본 명령어 : https://uareuni.tistory.com/42
