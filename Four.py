@@ -52,7 +52,7 @@ while True:
 
     #XLM
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            xlm_target_price = get_target_price("KRW-XLM", 0.4)
+            xlm_target_price = get_target_price("KRW-XLM", 0.1)
             xlm_ma5 = get_ma5("KRW-XLM")
             xlm_current_price = get_current_price("KRW-XLM")
             if xlm_target_price < xlm_current_price and xlm_ma5 < xlm_current_price:
@@ -63,22 +63,22 @@ while True:
             if xlm > 0.00000001:
                 upbit.sell_market_order("KRW-XLM", xlm*0.9995)
 
-    #BTG
+    #BTC
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            btg_target_price = get_target_price("KRW-BTG", 0.3)
-            btg_ma5 = get_ma5("KRW-BTG")
-            btg_current_price = get_current_price("KRW-BTG")
-            if btg_target_price < btg_current_price and btg_ma5 < btg_current_price:
+            btc_target_price = get_target_price("KRW-BTC", 0.3)
+            btc_ma5 = get_ma5("KRW-BTC")
+            btc_current_price = get_current_price("KRW-BTC")
+            if btc_target_price < btc_current_price and btc_ma5 < btc_current_price:
                 if krw > 5000:
-                    upbit.buy_market_order("KRW-BTG", krw*0.2495)
+                    upbit.buy_market_order("KRW-BTC", krw*0.2495)
         else:
-            btg = get_balance("BTG")
-            if btg > 0.00000001:
-                upbit.sell_market_order("KRW-BTG", btg*0.9995)
+            btc = get_balance("BTC")
+            if btc > 0.00000001:
+                upbit.sell_market_order("KRW-BTC", btc*0.9995)
 
     #ADA
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            ada_target_price = get_target_price("KRW-ADA", 0.3)
+            ada_target_price = get_target_price("KRW-ADA", 0.5)
             ada_ma5 = get_ma5("KRW-ADA")
             ada_current_price = get_current_price("KRW-ADA")
             if ada_target_price < ada_current_price and ada_ma5 < ada_current_price:
@@ -92,7 +92,7 @@ while True:
 
     #LTC
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            ltc_target_price = get_target_price("KRW-LTC", 0.4)
+            ltc_target_price = get_target_price("KRW-LTC", 0.5)
             ltc_ma5 = get_ma5("KRW-LTC")
             ltc_current_price = get_current_price("KRW-LTC")
             if ltc_target_price < ltc_current_price and ltc_ma5 < ltc_current_price:
