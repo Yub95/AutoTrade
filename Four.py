@@ -46,26 +46,26 @@ print("autotrade start")
 while True:
     try:
         now = datetime.datetime.now()
-        start_time = get_start_time("KRW-XLM")
+        start_time = get_start_time("KRW-ETH")
         end_time = start_time + datetime.timedelta(days=1)
         krw = get_balance("KRW")
 
-    #XLM
+    #ETH
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            xlm_target_price = get_target_price("KRW-XLM", 0.1)
-            xlm_ma5 = get_ma5("KRW-XLM")
-            xlm_current_price = get_current_price("KRW-XLM")
-            if xlm_target_price < xlm_current_price and xlm_ma5 < xlm_current_price:
+            eth_target_price = get_target_price("KRW-ETH", 0.4)
+            eth_ma5 = get_ma5("KRW-ETH")
+            eth_current_price = get_current_price("KRW-ETH")
+            if eth_target_price < eth_current_price and eth_ma5 < eth_current_price:
                 if krw > 5000:
-                    upbit.buy_market_order("KRW-XLM", krw*0.2495)
+                    upbit.buy_market_order("KRW-ETH", krw*0.2495)
         else:
-            xlm = get_balance("XLM")
-            if xlm > 0.00000001:
-                upbit.sell_market_order("KRW-XLM", xlm*0.9995)
+            eth = get_balance("ETH")
+            if eth > 0.00000001:
+                upbit.sell_market_order("KRW-ETH", eth*0.9995)
 
     #BTC
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            btc_target_price = get_target_price("KRW-BTC", 0.3)
+            btc_target_price = get_target_price("KRW-BTC", 0.4)
             btc_ma5 = get_ma5("KRW-BTC")
             btc_current_price = get_current_price("KRW-BTC")
             if btc_target_price < btc_current_price and btc_ma5 < btc_current_price:
@@ -90,18 +90,18 @@ while True:
                 upbit.sell_market_order("KRW-ADA", ada*0.9995)
 
 
-    #LTC
+    #SAND
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            ltc_target_price = get_target_price("KRW-LTC", 0.5)
-            ltc_ma5 = get_ma5("KRW-LTC")
-            ltc_current_price = get_current_price("KRW-LTC")
-            if ltc_target_price < ltc_current_price and ltc_ma5 < ltc_current_price:
+            sand_target_price = get_target_price("KRW-SAND", 0.5)
+            sand_ma5 = get_ma5("KRW-SAND")
+            sand_current_price = get_current_price("KRW-SAND")
+            if sand_target_price < sand_current_price and sand_ma5 < sand_current_price:
                 if krw > 5000:
-                    upbit.buy_market_order("KRW-LTC", krw*0.2495)
+                    upbit.buy_market_order("KRW-SAND", krw*0.2495)
         else:
-            ltc = get_balance("LTC")
-            if ltc > 0.00000001:
-                upbit.sell_market_order("KRW-LTC", ltc*0.9995)
+            sand = get_balance("SAND")
+            if sand > 0.00000001:
+                upbit.sell_market_order("KRW-SAND", sand*0.9995)
 
 
 
