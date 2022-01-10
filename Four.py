@@ -58,11 +58,12 @@ while True:
 
     #ETH
         if start_time < now < end_time - datetime.timedelta(minutes=140):
+            eth = get_balance("ETH")
             eth_target_price = get_target_price("KRW-ETH", 0.4)
             eth_ma5 = get_ma5("KRW-ETH")
             eth_current_price = get_current_price("KRW-ETH")
             eth_start_price = get_start_price("KRW-ETH")
-            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price:
+            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price and eth<0.000001:
                 if krw > 5000:
                     upbit.buy_market_order("KRW-ETH", krw*0.2495)
         else:
@@ -72,11 +73,12 @@ while True:
 
     #BTC
         if start_time < now < end_time - datetime.timedelta(minutes=140):
+            btc = get_balance("BTC")
             btc_target_price = get_target_price("KRW-BTC", 0.4)
             btc_ma5 = get_ma5("KRW-BTC")
             btc_current_price = get_current_price("KRW-BTC")
             btc_start_price = get_start_price("KRW-BTC")
-            if btc_target_price < btc_current_price and btc_ma5 < btc_start_price:
+            if btc_target_price < btc_current_price and btc_ma5 < btc_start_price and btc < 0.000001:
                 if krw > 5000:
                     upbit.buy_market_order("KRW-BTC", krw*0.2495)
         else:
@@ -86,11 +88,12 @@ while True:
 
     #ADA
         if start_time < now < end_time - datetime.timedelta(minutes=140):
+            ada = get_balance("ADA")
             ada_target_price = get_target_price("KRW-ADA", 0.5)
             ada_ma5 = get_ma5("KRW-ADA")
             ada_current_price = get_current_price("KRW-ADA")
             ada_start_price = get_start_price("KRW-ADA")
-            if ada_target_price < ada_current_price and ada_ma5 < ada_start_price:
+            if ada_target_price < ada_current_price and ada_ma5 < ada_start_price and ada < 0.1:
                 if krw > 5000:
                     upbit.buy_market_order("KRW-ADA", krw*0.2495)
         else:
@@ -101,21 +104,20 @@ while True:
 
     #SAND
         if start_time < now < end_time - datetime.timedelta(minutes=140):
+            sand = get_balance("SAND")
             sand_target_price = get_target_price("KRW-SAND", 0.5)
             sand_ma5 = get_ma5("KRW-SAND")
             sand_current_price = get_current_price("KRW-SAND")
             sand_start_price = get_start_price("KRW-SAND")
-            if sand_target_price < sand_current_price and sand_ma5 < sand_start_price:
+            if sand_target_price < sand_current_price and sand_ma5 < sand_start_price and sand < 1:
                 if krw > 5000:
                     upbit.buy_market_order("KRW-SAND", krw*0.2495)
         else:
             sand = get_balance("SAND")
             if sand > 0.00000001:
                 upbit.sell_market_order("KRW-SAND", sand)
-
-
-
         time.sleep(1)
+        
     except Exception as e:
         print(e)
         time.sleep(1)
