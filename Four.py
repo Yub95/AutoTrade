@@ -39,7 +39,6 @@ def get_balance(ticker):
             else:
                 return 0
     return 0
-
 def get_current_price(ticker):
     """현재가 조회"""
     return pyupbit.get_orderbook(ticker=ticker)["orderbook_units"][0]["ask_price"]
@@ -63,7 +62,7 @@ while True:
             eth_ma5 = get_ma5("KRW-ETH")
             eth_current_price = get_current_price("KRW-ETH")
             eth_start_price = get_start_price("KRW-ETH")
-            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price and eth<0.000001:
+            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price and eth < 0.000001:
                 if krw > 5000:
                     upbit.buy_market_order("KRW-ETH", krw*0.1995)
         else:
@@ -118,20 +117,20 @@ while True:
                 upbit.sell_market_order("KRW-SAND", sand)
 
 
-    #LUNA
+    #SOL
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            luna = get_balance("LUNA")
-            luna_target_price = get_target_price("KRW-LUNA", 0.5)
-            luna_ma5 = get_ma5("KRW-LUNA")
-            luna_current_price = get_current_price("KRW-LUNA")
-            luna_start_price = get_start_price("KRW-LUNA")
-            if luna_target_price < luna_current_price and luna_ma5 < luna_start_price and luna < 0.00001:
+            sol = get_balance("LUNA")
+            sol_target_price = get_target_price("KRW-SOL", 0.5)
+            sol_ma5 = get_ma5("KRW-SOL")
+            sol_current_price = get_current_price("KRW-SOL")
+            sol_start_price = get_start_price("KRW-SOL")
+            if sol_target_price < sol_current_price and sol_ma5 < sol_start_price and sol < 0.00001:
                 if krw > 5000:
-                    upbit.buy_market_order("KRW-LUNA", krw*0.1995)
+                    upbit.buy_market_order("KRW-SOL", krw*0.1995)
         else:
-            luna = get_balance("LUNA")
-            if luna > 0.00000001:
-                upbit.sell_market_order("KRW-LUNA", luna)
+            sol = get_balance("SOL")
+            if sol > 0.00000001:
+                upbit.sell_market_order("KRW-SOL", sol)
 
         time.sleep(1)
         
