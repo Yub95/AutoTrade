@@ -5,7 +5,6 @@ import datetime
 access = "reXf1Lxdxlvd5uzsFIKts1ZaCWG5DfyVAGVxcEde"
 secret = "wnmgJJDyHzMcpQRGbapuTGmVj1b77WaMzPFPR4pT"
 
-#'<' not supported between instances of 'numpy.float64' and 'Timestamp'
 
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
@@ -29,7 +28,7 @@ def get_start_price(ticker) :
     """ 시가 조회"""
     df=pyupbit.get_ohlcv(ticker,interval="day",count=1)
     start_price = df['open'].iloc[-1]
-    return start_time
+    return start_price
 
 def get_balance(ticker):
     """잔고 조회"""
