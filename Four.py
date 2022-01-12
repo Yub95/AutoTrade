@@ -119,7 +119,7 @@ while True:
 
     #SOL
         if start_time < now < end_time - datetime.timedelta(minutes=140):
-            sol = get_balance("LUNA")
+            sol = get_balance("SOL")
             sol_target_price = get_target_price("KRW-SOL", 0.5)
             sol_ma5 = get_ma5("KRW-SOL")
             sol_current_price = get_current_price("KRW-SOL")
