@@ -5,6 +5,8 @@ import datetime
 access = "reXf1Lxdxlvd5uzsFIKts1ZaCWG5DfyVAGVxcEde"
 secret = "wnmgJJDyHzMcpQRGbapuTGmVj1b77WaMzPFPR4pT"
 
+#'<' not supported between instances of 'numpy.float64' and 'Timestamp'
+
 def get_target_price(ticker, k):
     """변동성 돌파 전략으로 매수 목표가 조회"""
     df = pyupbit.get_ohlcv(ticker, interval="day", count=2)
@@ -62,8 +64,8 @@ while True:
             eth_ma5 = get_ma5("KRW-ETH")
             eth_current_price = get_current_price("KRW-ETH")
             eth_start_price = get_start_price("KRW-ETH")
-            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price and eth < 0.000001:
-                if krw > 5000:
+            if eth_target_price < eth_current_price and eth_ma5 < eth_start_price:
+                if krw > 5000 and eth < 0.000001:
                     upbit.buy_market_order("KRW-ETH", krw*0.1995)
         else:
             eth = get_balance("ETH")
@@ -77,8 +79,8 @@ while True:
             btc_ma5 = get_ma5("KRW-BTC")
             btc_current_price = get_current_price("KRW-BTC")
             btc_start_price = get_start_price("KRW-BTC")
-            if btc_target_price < btc_current_price and btc_ma5 < btc_start_price and btc < 0.000001:
-                if krw > 5000:
+            if btc_target_price < btc_current_price and btc_ma5 < btc_start_price:
+                if krw > 5000 and btc < 0.000001:
                     upbit.buy_market_order("KRW-BTC", krw*0.1995)
         else:
             btc = get_balance("BTC")
@@ -92,8 +94,8 @@ while True:
             ada_ma5 = get_ma5("KRW-ADA")
             ada_current_price = get_current_price("KRW-ADA")
             ada_start_price = get_start_price("KRW-ADA")
-            if ada_target_price < ada_current_price and ada_ma5 < ada_start_price and ada < 0.1:
-                if krw > 5000:
+            if ada_target_price < ada_current_price and ada_ma5 < ada_start_price:
+                if krw > 5000 and ada < 0.1:
                     upbit.buy_market_order("KRW-ADA", krw*0.1995)
         else:
             ada = get_balance("ADA")
@@ -108,8 +110,8 @@ while True:
             sand_ma5 = get_ma5("KRW-SAND")
             sand_current_price = get_current_price("KRW-SAND")
             sand_start_price = get_start_price("KRW-SAND")
-            if sand_target_price < sand_current_price and sand_ma5 < sand_start_price and sand < 1:
-                if krw > 5000:
+            if sand_target_price < sand_current_price and sand_ma5 < sand_start_price:
+                if krw > 5000 and sand < 1:
                     upbit.buy_market_order("KRW-SAND", krw*0.1995)
         else:
             sand = get_balance("SAND")
@@ -124,8 +126,8 @@ while True:
             sol_ma5 = get_ma5("KRW-SOL")
             sol_current_price = get_current_price("KRW-SOL")
             sol_start_price = get_start_price("KRW-SOL")
-            if sol_target_price < sol_current_price and sol_ma5 < sol_start_price and sol < 0.00001:
-                if krw > 5000:
+            if sol_target_price < sol_current_price and sol_ma5 < sol_start_price:
+                if krw > 5000 and sol < 0.001:
                     upbit.buy_market_order("KRW-SOL", krw*0.1995)
         else:
             sol = get_balance("SOL")
