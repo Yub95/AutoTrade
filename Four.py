@@ -54,7 +54,7 @@ while True:
         start_time = get_start_time("KRW-ETH")  #9:00
         end_time = start_time + datetime.timedelta(days=1)  #9:00 + 1일
         
-        if end_time - end_time.timedelta(minutes=130) < now < end_time - end_time.timedelta(seconds = 30) :
+        if end_time - datetime.timedelta(minutes=130) < now < end_time - datetime.timedelta(seconds = 30) :
             krw = get_balance("KRW")
         else:
         #ETH
